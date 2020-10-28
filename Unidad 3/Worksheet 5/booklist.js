@@ -41,7 +41,7 @@ class boobklist{
 }
 
 class book{
-    constructor(title,genre,author,){
+    constructor(title,genre,author){
         this.title = title;
         this.genre = genre;
         this.author = author;
