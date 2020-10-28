@@ -1,4 +1,4 @@
-class boobklist{
+class booklist{
     constructor(){
         this.arrayBooks = [];
         this.currentBookIndex = 0;
