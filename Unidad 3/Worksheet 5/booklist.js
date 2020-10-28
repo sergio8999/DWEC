@@ -13,7 +13,7 @@ class booklist{
         return this.arrayBooks.filter((book) => !book.read).length;
     }
     get nextBook(){
-        if(this.currentBookIndex <= this.arrayBooks.length)
+        if(this.currentBookIndex < this.arrayBooks.length-1)
             return this.arrayBooks[this.currentBookIndex+1];
         return null;
     }
