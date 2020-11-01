@@ -1,4 +1,4 @@
-class booklist{
+class Booklist{
     constructor(){
         this.arrayBooks = [];
         this.currentBookIndex = 0;
@@ -40,7 +40,7 @@ class booklist{
     }
 }
 
-class book{
+class Book{
     constructor(title,genre,author){
         this.title = title;
         this.genre = genre;
