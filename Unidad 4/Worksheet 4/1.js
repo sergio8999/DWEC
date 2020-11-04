@@ -19,7 +19,7 @@ function main(){
     temaNormalHTML.addEventListener('click',temaNormal);
     temaMinimalistaHTML.addEventListener('click',temaMinimalista);
 }
-
+style="width: 200px;height: 970px;background-color: blue;float: left;"
 // a)
 function temaNormal(){   
     let divElegirTema = document.getElementById('elegirTema');
@@ -27,7 +27,13 @@ function temaNormal(){
     let temaMinimalistaHTML = document.getElementById('textoMinimalista');
     let divMarco = document.getElementById('marco');
     let parrafoOculto = document.getElementById('parrafoOculto');
+    let divLateral = document.getElementById('lateral');
 
+    divLateral.style.width = "200px";
+    divLateral.style.height = "970px";
+    divLateral.style.backgroundColor = "#00AAE4";
+    divLateral.style.float = "left";
+    divElegirTema.float = "left";
     divElegirTema.style.backgroundColor = "lightblue";
     temaNormalHTML.style.color = "blue";
     temaMinimalistaHTML.style.color = "blue";
@@ -41,6 +47,7 @@ function temaNormal(){
     divMarco.style.backgroundColor = "yellow";
     divMarco.style.borderStyle = "solid";
     parrafoOculto.style.display = "inline";
+    divLateral.style.display = "inline";
 }
 
 function temaMinimalista(){
@@ -49,7 +56,9 @@ function temaMinimalista(){
     let temaMinimalistaHTML = document.getElementById('textoMinimalista');
     let divMarco = document.getElementById('marco');
     let parrafoOculto = document.getElementById('parrafoOculto');
+    let divLateral = document.getElementById('lateral');
 
+    divLateral.style.display = "none";
     divElegirTema.style.backgroundColor = "white";
     temaNormalHTML.style.color = "blue";
     temaMinimalistaHTML.style.color = "blue";
