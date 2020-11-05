@@ -1,0 +1,42 @@
+#lateral{
+    height: 970px;
+    width: 200px;
+    background-color: #00AAE4;
+    float: left;
+    display: inline;
+} 
+
+#elegirTema{
+    background-color: lightblue;
+    border-style: solid;
+}
+
+#textoNormal{
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#textoMinimalista{
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body{
+    background-color: #fdfd96;
+    font-size: 16px;
+}
+
+#marco{
+    background-color: yellow;
+    border-style: solid;
+}
+
+#parrafoOculto{
+    display: inline;
+}
+
+#texto{
+    margin-left: 230px;
+}
