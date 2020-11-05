@@ -1,0 +1,47 @@
+.boton_1{
+text-decoration: none;
+padding: 3px;
+padding-left: 10px;
+padding-right: 10px;
+font-family: helvetica;
+font-weight: 200;
+font-size: 15px;
+font-style: italic;
+color: #006505;
+background-color: #82b085;
+border-radius: 15px;
+border: 3px double #006505;
+}
+
+.boton_1:hover{
+opacity: 0.6;
+text-decoration: none;
+}
+
+#botonesTamano{
+    margin-top: 20px;
+}
+
+#tamano{
+    text-align: center;
+    display: inline-block;
+    size: 30%;
+
+}
+
+#alineacion{
+    text-align: center;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+#controles{
+    text-align: center;
+}
+
+#texto{
+    margin-top: 4%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
