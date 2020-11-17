@@ -1,7 +1,6 @@
 class Booklist{
     constructor(){
         this.arrayBooks = [];
-        this.currentBookIndex = 0;
         this.lastbook = null;
     }
 
@@ -14,12 +13,25 @@ class Booklist{
     }
     get nextBook(){
         if(this.currentBookIndex < this.arrayBooks.length-1)
-            return this.arrayBooks[this.currentBookIndex+1];
+        for(let i=this.currentBookIndex+1;i<this.arrayBooks.length;i++){
+            if(this.arrayBooks[i].read == "")
+                return this.arrayBooks[i];
+        }
         return null;
     }
     get currentBook(){
         if(this.arrayBooks.length != 0)
-            return this.arrayBooks[this.currentBookIndex];
+        for( let book of this.arrayBooks)
+            if(book.read == "")
+                return book;
+        return null;
+    }
+    get currentBookIndex(){
+        if(this.arrayBooks.length != 0)
+            for(let i=0;i<this.arrayBooks.length;i++){
+                if(this.arrayBooks[i].read == "")
+                    return i;
+            }
         return null;
     }
     
@@ -29,15 +41,14 @@ class Booklist{
         return this.arrayBooks.push(book);
     }
 
-    finishCurrent(){
+    finishCurrent(index){
         if(this.currentBookIndex < this.arrayBooks.length){
-            this.arrayBooks[this.currentBookIndex].read = true;
-            this.arrayBooks[this.currentBookIndex].readDate = new Date(Date.now());
-            this.lastbook = this.arrayBooks[this.currentBookIndex];
-            this.currentBookIndex++;
+            this.arrayBooks[index].read = true;
+            this.arrayBooks[index].readDate = new Date(Date.now());
+            this.lastbook = this.arrayBooks[index];
         }else
             console.log("No esta leyendo ningún libro");
-    }
+        }
 }
 
 class Book{
@@ -45,7 +56,7 @@ class Book{
         this.title = title;
         this.genre = genre;
         this.author = author;
-        this.read = false;
+        this.read = "";
         this.readDate = "";
     }
 }
