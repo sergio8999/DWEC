@@ -276,6 +276,7 @@ class Juego{
     loop(){
         let juegoNuevo = document.getElementById("jugarNuevo");
         let svg = document.getElementsByTagName('svg')[0];
+        let elId;
 
         this.bola.moverBola();
         this.bola.colision(this.pala1,this.pala2);
@@ -295,7 +296,7 @@ class Juego{
 
         // Seguir jugando hasta que las victorias de un jugador sea 3, mostrar resultado y opcion de jugar de nuevo
         if(this.victoriasJugador1 < 5 && this.victoriasJugador2 <5)
-            elId = window.requestAnimationFrame(() =>{this.loop()});
+             elId = window.requestAnimationFrame(() =>{this.loop()});
         else if(this.victoriasJugador1 == 5){
             this.haGanado(svg,"JUGADOR 1");
             juegoNuevo.disabled = false; 

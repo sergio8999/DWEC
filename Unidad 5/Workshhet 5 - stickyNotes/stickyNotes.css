@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+}
+
+p{
+    margin: 0;
+}
+
+/* #divNotas{
+    display:flex;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+} */
+
+label{
+    width: 15%;
+}
+
+#divNotas > section{
+    position: absolute;
+   /*  margin:20px; */
+    padding: 0.5%;
+    width: 15%;
+    height: 150px;
+    background-color: yellow;
+    overflow: hidden;
+/*     left: 10%; */
+}
+
+#divNotas input{
+    margin: 1%;
+    width: 65%;
+    border: 0px;
+    background-color: yellow;
+}
+#divNotas textarea{
+    margin: 1%;
+    width: 90%;
+    height: 70px;
+    border: 0px;
+    background-color: yellow;
+}
+
+textarea{
+    resize: none;
+    overflow: auto;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+
+label,input,p{
+    font-weight: bold;
+}
