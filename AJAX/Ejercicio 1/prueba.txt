@@ -1,0 +1,4 @@
+  
+{
+    "listaPeliculas":[{"titulo":"prueba","fecha":"hoy"},{"titulo":"prueba2","fecha":"hoy"},{"titulo":"prueba3","fecha":"hoy"},{"titulo":"prueba4","fecha":"hoy"}]
+}
