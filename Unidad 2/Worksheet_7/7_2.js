@@ -6,7 +6,7 @@
 
 
 
-/* function success(pos) {
+ function success(pos) {
     var crd = pos.coords;
     var latitud = crd.latitude;
     var longitud = crd.longitude;
@@ -27,8 +27,8 @@
   }
   
   navigator.geolocation.getCurrentPosition(success, error);
- */
-function success(pos) {
+ 
+/* function success(pos) {
     var crd = pos.coords;
     var latitud = crd.latitude;
     var longitud = crd.longitude;
@@ -46,8 +46,8 @@ function success(pos) {
   
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
-  }
+  } 
   
-  navigator.geolocation.getCurrentPosition(success, error);
+  navigator.geolocation.getCurrentPosition(success, error);*/
 
   
