@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #input:focus { outline: none; }
+      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages > li { padding: 0.5rem 1rem; }
+      #messages > li:nth-child(odd) { background: #efefef; }
+
+      #divNombre{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: black;
+        color: white;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: 30;
+      }
+
+      label{
+        margin-right: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divNombre">
+      <label for="nombre">Escribe nombre:</label>
+      <input id="nombre" type="text">
+    </div>
+    <ul id="messages"></ul>
+    <form id="form" action="">
+      <button id="negrita">N</button>
+      <input type="color" name="color" id="color">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  var form = document.getElementById('form');
+  var input = document.getElementById('input');
+  var divNombre = document.getElementById('divNombre');
+  var nombreInput = document.getElementById('nombre');
+  var botonNegrita = document.getElementById("negrita");
+  var  botonColor = document.getElementById('color');
+  var nombre;
+  var negrita = false;
+  var color;
+
+  
+  nombreInput.addEventListener('keyup',function(e){
+    if(e.keyCode==13){
+      e.preventDefault();
+      nombre = nombreInput.value;
+      nombreInput = "";
+      divNombre.style.display="none";
+      socket.emit('nombre', nombre);
+    }
+  })
+
+  botonNegrita.addEventListener('click',function(e){
+    e.preventDefault();
+    negrita = !negrita;
+    if(negrita){
+      botonNegrita.style.color="initial";
+      botonNegrita.style.fontWeight="bold";
+      botonNegrita.style.backgroundColor="white";
+    }else{
+      botonNegrita.style.color="black";
+      botonNegrita.style.fontWeight="initial";
+      botonNegrita.style.backgroundColor="initial";
+    }
+  })
+
+  botonColor.addEventListener("change",function(e){
+    e.preventDefault();
+    color = botonColor.value;
+  })
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) {
+      socket.emit('mensaje', {"nombre":nombre,"valor":input.value,"negrita":negrita,"color":color});
+      input.value = '';
+    }
+  });
+  socket.on('mensajeDesdeServidor', function(msg) {
+    let item = document.createElement('li');
+    item.textContent = msg.nombre +" : "+ msg.valor;
+    if(msg.negrita)
+      item.style.fontWeight = "bold"
+    item.style.color=msg.color;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+   socket.on('entraSala', function(msg) {
+    let item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+  }); 
+</script>
+  </body>
+</html>
